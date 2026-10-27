@@ -1,10 +1,14 @@
-# Publish and present the GitHub repository
+# GitHub publication and presentation
+
+Published repository: [Smart Switch Performance and Reporting Automation](https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation).
+
+The repository is public. Project commits are attributed to **Aradhana Singh** (`aradhanasingh3136-stack`).
 
 Owner: **aradhanasingh3136-stack**<br>
 Repository name: **Smart-Switch-Performance-and-Reporting-Automation**<br>
 Suggested description: **Smart home switch performance analytics and reporting automation with SQL, Python, Power BI and Excel VBA. Includes reproducible synthetic IoT data and validation checks.**
 
-The direct resume URL, **after successful publication**, is:
+The direct resume URL is:
 
 ```text
 https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation
@@ -12,7 +16,7 @@ https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reportin
 
 An account/profile URL is not authentication. Creating the repository and uploading require signing in through GitHub, an authenticated CLI, or a connected GitHub integration. Never paste access tokens or passwords into project files or chat.
 
-## Recommended: GitHub Desktop
+## GitHub Desktop publication workflow
 
 1. Extract the project package and locate the folder containing `README.md` and `run.py`.
 2. Sign in to GitHub Desktop using your GitHub account.
@@ -79,6 +83,6 @@ If you maintain a profile README, a concise project entry could be:
 
 > I build analytics projects with SQL, Python, Power BI and Excel. My SmartSwitch Analytics project examines synthetic home automation data with reproducible ETL, reliability metrics and reporting automation.
 
-Add the repository link once it exists. A complete profile refresh is a separate edit to the repository named exactly after your username.
+Use the published repository link above. A complete profile refresh is a separate edit to the repository named exactly after your username.
 
 The workflow follows [GitHub's guide to importing local code](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).

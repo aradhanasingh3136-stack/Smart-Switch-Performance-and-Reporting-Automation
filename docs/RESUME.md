@@ -23,13 +23,13 @@ For a shorter resume, use the first bullet and the native-workflow bullet after 
 **SmartSwitch Analytics | SQL, Python, Power BI, Excel VBA**<br>
 Analyzed 90 days of synthetic home automation events for 60 devices, with reproducible ETL, reliability KPIs, firmware comparisons and reporting automation. Added duplicate detection, record quarantine and 12 automated checks.
 
-## Link to add after publication
+## Project link
 
-The intended repository URL is:
+Published repository URL:
 
 `https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation`
 
-This is the **planned destination**, not proof that publication has completed. Open it in a signed-out/private browser after upload and confirm the README and files are visible before putting it on your resume.
+The repository is public. Use this direct project link on your resume and portfolio.
 
 Display text in the resume can be **GitHub: SmartSwitch Analytics**, linked to the verified repository URL. Avoid the profile's `?tab=projects` URL; a direct repository link takes a recruiter to the code and documentation.
 

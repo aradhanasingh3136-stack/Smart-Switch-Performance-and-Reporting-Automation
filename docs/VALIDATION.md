@@ -7,6 +7,7 @@
 | Python pipeline | Completed on the packaged fixed-seed data | `reports/summary.json`, `reports/run_log.json` after a run |
 | Automated unit/integration suite | 12 tests passed locally | `python3 -m unittest discover -s tests -v` |
 | Deterministic reporting | 13 analytic exports byte-identical across a repeat run | `scripts/check_reproducibility.py` |
+| GitHub Actions | Pipeline rebuild, all 12 tests and reproducibility check passed on Ubuntu with Python 3.12 | [Hosted validation run](https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation/actions/runs/40545115831), commit `c46fa30`, 27 October 2026 |
 | SQL analyses | All nine queries executed | `python3 run.py --queries` |
 | Source reconciliation | 92,192 raw commands = 91,867 valid + 320 duplicates + 5 rejected | `reports/data_quality.json` |
 | Telemetry reconciliation | 129,780 raw rows = 129,600 valid + 180 duplicates | `reports/data_quality.json` |
@@ -24,8 +25,7 @@ The model contains 14 explicit DAX measures. Schema checks establish the structu
 
 - **Power BI Desktop:** open the project, set DataFolder, refresh all queries, evaluate measures, verify filters and visual rendering, save and reopen.
 - **Desktop Excel VBA:** import the `.bas` module into a `.xlsm` working copy, run the refresh, exercise error paths and export the PDF.
-- **GitHub Actions:** the workflow is supplied but a hosted run can be confirmed only after publication.
 - **Scheduled execution:** wrapper scripts are supplied; no task has been installed on your machine.
 - **Physical devices:** no hardware, live MQTT service or measured electrical load was used.
 
-These items are documented in their setup guides. Local Python and workbook checks should not be described as proof that these separate native or hosted workflows have passed.
+These items are documented in their setup guides. Local Python and workbook checks should not be described as proof that these separate native workflows have passed.
