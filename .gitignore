@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+*.log
+data/raw/commands.csv
+data/raw/telemetry.csv
+data/processed/fact_command.csv
+data/processed/fact_device_hour.csv
+data/warehouse/
+reports/run_log.json
+**/.pbi/
+*.pbix
+*.xlsm
+excel/exports/

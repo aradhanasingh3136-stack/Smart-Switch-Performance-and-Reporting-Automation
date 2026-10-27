@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "reliability_device",
+  "position": {
+    "x": 24,
+    "y": 405,
+    "z": 0,
+    "width": 1232,
+    "height": 275,
+    "tabOrder": 429
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_device"
+                    }
+                  },
+                  "Property": "device_id"
+                }
+              },
+              "queryRef": "dim_device.device_id",
+              "nativeQueryRef": "device_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_device"
+                    }
+                  },
+                  "Property": "home_id"
+                }
+              },
+              "queryRef": "dim_device.home_id",
+              "nativeQueryRef": "home_id"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_command"
+                    }
+                  },
+                  "Property": "Commands"
+                }
+              },
+              "queryRef": "fact_command.Commands",
+              "nativeQueryRef": "Commands"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_command"
+                    }
+                  },
+                  "Property": "Command Success %"
+                }
+              },
+              "queryRef": "fact_command.Command Success %",
+              "nativeQueryRef": "Command Success %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_command"
+                    }
+                  },
+                  "Property": "Heartbeat Delivery %"
+                }
+              },
+              "queryRef": "fact_command.Heartbeat Delivery %",
+              "nativeQueryRef": "Heartbeat Delivery %"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Device reliability'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Synthetic demo: Device reliability'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

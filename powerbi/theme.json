@@ -1,0 +1,13 @@
+{
+  "name": "SmartSwitch",
+  "dataColors": [
+    "#1976B9",
+    "#249E79",
+    "#E5A442",
+    "#A46AB9",
+    "#D46767"
+  ],
+  "background": "#F3F6FA",
+  "foreground": "#152C4A",
+  "tableAccent": "#1976B9"
+}

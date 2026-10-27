@@ -1,0 +1,72 @@
+[
+  {
+    "reason": "Invalid isoformat string: 'not-a-date'",
+    "row": {
+      "command_id": "BAD002",
+      "device_id": "SW001",
+      "event_time": "not-a-date",
+      "firmware_version": "1.0.2",
+      "source": "VOICE",
+      "action": "ON",
+      "status": "SUCCESS",
+      "failure_reason": "NONE",
+      "latency_ms": "500.2"
+    }
+  },
+  {
+    "reason": "invalid command key or status",
+    "row": {
+      "command_id": "BAD003",
+      "device_id": "SW001",
+      "event_time": "2026-07-01T07:57:48",
+      "firmware_version": "1.0.2",
+      "source": "VOICE",
+      "action": "ON",
+      "status": "UNKNOWN",
+      "failure_reason": "NONE",
+      "latency_ms": "331.3"
+    }
+  },
+  {
+    "reason": "success requires positive latency and NONE reason",
+    "row": {
+      "command_id": "BAD004",
+      "device_id": "SW001",
+      "event_time": "2026-07-01T08:49:46",
+      "firmware_version": "1.0.2",
+      "source": "VOICE",
+      "action": "ON",
+      "status": "SUCCESS",
+      "failure_reason": "NONE",
+      "latency_ms": ""
+    }
+  },
+  {
+    "reason": "unknown device_id",
+    "row": {
+      "command_id": "BAD001",
+      "device_id": "SW999",
+      "event_time": "2026-07-01T06:57:33",
+      "firmware_version": "1.0.2",
+      "source": "VOICE",
+      "action": "OFF",
+      "status": "SUCCESS",
+      "failure_reason": "NONE",
+      "latency_ms": "252.6"
+    }
+  },
+  {
+    "reason": "success requires positive latency and NONE reason",
+    "row": {
+      "command_id": "BAD000",
+      "device_id": "SW001",
+      "event_time": "2026-07-01T01:41:03",
+      "firmware_version": "1.0.2",
+      "source": "APP",
+      "action": "ON",
+      "status": "SUCCESS",
+      "failure_reason": "NONE",
+      "latency_ms": "-25"
+    }
+  }
+]

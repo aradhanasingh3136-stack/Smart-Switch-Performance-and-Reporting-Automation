@@ -1,0 +1,20 @@
+{
+  "synthetic": true,
+  "timezone": "Asia/Kolkata",
+  "timestamps": "local naive IST; no DST",
+  "seed": 20260701,
+  "start_date": "2026-07-01",
+  "days": 90,
+  "devices": 60,
+  "raw_commands": 92192,
+  "raw_telemetry": 129780,
+  "injected_invalid_rows": 5,
+  "injected_exact_duplicates": 500,
+  "scenarios": [
+    "HOME003 day 31 evening outage",
+    "HOME008 day 63 overnight outage",
+    "Firmware 1.1.0 regression days 37-50 on every third switch",
+    "Firmware 1.1.1 patch from day 51",
+    "Reduced scheduled runtime from day 58"
+  ]
+}

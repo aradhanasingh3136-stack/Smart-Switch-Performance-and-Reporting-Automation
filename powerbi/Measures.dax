@@ -1,0 +1,45 @@
+// Reference definitions: measures are already included in model.bim.
+
+Commands :=
+COUNTROWS('fact_command')
+
+Successful Commands :=
+CALCULATE([Commands], KEEPFILTERS('fact_command'[status] = "SUCCESS"))
+
+Failed Commands :=
+CALCULATE([Commands], KEEPFILTERS('fact_command'[status] <> "SUCCESS"))
+
+Command Success % :=
+DIVIDE([Successful Commands], [Commands])
+
+Average Ack ms :=
+CALCULATE(AVERAGE('fact_command'[latency_ms]), KEEPFILTERS('fact_command'[status] = "SUCCESS"))
+
+P95 Ack ms :=
+VAR Good = FILTER('fact_command', 'fact_command'[status] = "SUCCESS" && NOT ISBLANK('fact_command'[latency_ms]))
+VAR N = COUNTROWS(Good)
+RETURN IF(N = 0, BLANK(), MAXX(TOPN(ROUNDUP(0.95 * N, 0), Good, 'fact_command'[latency_ms], ASC, 'fact_command'[command_id], ASC), 'fact_command'[latency_ms]))
+
+Heartbeat Delivery % :=
+DIVIDE(SUM('fact_device_hour'[received_heartbeats]), SUM('fact_device_hour'[expected_heartbeats]))
+
+Estimated kWh :=
+SUM('fact_device_hour'[estimated_kwh])
+
+Assumed Baseline kWh :=
+SUMX('fact_device_hour', RELATED('dim_device'[rated_watts]) * RELATED('dim_device'[baseline_daily_hours]) / 24000)
+
+Modeled Avoided kWh :=
+[Assumed Baseline kWh] - [Estimated kWh]
+
+Modeled Cost Difference INR :=
+[Modeled Avoided kWh] * 8.0
+
+Reporting Devices :=
+DISTINCTCOUNT('fact_device_hour'[device_id])
+
+Success 7D % :=
+CALCULATE([Command Success %], DATESINPERIOD('dim_date'[date], MAX('dim_date'[date]), -7, DAY))
+
+Slow Successful Commands :=
+CALCULATE([Successful Commands], KEEPFILTERS('fact_command'[latency_ms] > 800))

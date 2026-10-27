@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080">
+<rect x="0" y="0" width="1440" height="1080" rx="0" fill="#0b1220"/>
+<rect x="42" y="38" width="6" height="84" rx="3" fill="#58dfb3"/>
+<text x="68" y="58" fill="#58dfb3" font-family="Arial,sans-serif" font-size="14" font-weight="700">SMARTSWITCH / HOME AUTOMATION ANALYTICS</text>
+<text x="68" y="103" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="34" font-weight="700">Small switches. Measurable performance.</text>
+<text x="68" y="135" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="16" font-weight="400">2026-07-01 to 2026-09-28  |  10 homes  |  60 switches  |  SYNTHETIC DEMO DATA</text>
+<rect x="48" y="170" width="328" height="137" rx="16" fill="#162236"/>
+<text x="68" y="200" fill="#94a8c6" font-family="Arial,sans-serif" font-size="12" font-weight="700">COMMAND SUCCESS</text>
+<text x="68" y="246" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="31" font-weight="700">98.01%</text>
+<text x="68" y="279" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="12" font-weight="400">91,867 command acknowledgements</text>
+<rect x="396" y="170" width="328" height="137" rx="16" fill="#162236"/>
+<text x="416" y="200" fill="#94a8c6" font-family="Arial,sans-serif" font-size="12" font-weight="700">P95 ACK LATENCY</text>
+<text x="416" y="246" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="31" font-weight="700">614 ms</text>
+<text x="416" y="279" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="12" font-weight="400">Successful commands; nearest-rank P95</text>
+<rect x="744" y="170" width="328" height="137" rx="16" fill="#162236"/>
+<text x="764" y="200" fill="#94a8c6" font-family="Arial,sans-serif" font-size="12" font-weight="700">HEARTBEAT DELIVERY</text>
+<text x="764" y="246" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="31" font-weight="700">99.21%</text>
+<text x="764" y="279" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="12" font-weight="400">Connectivity proxy; 5-minute intervals</text>
+<rect x="1092" y="170" width="328" height="137" rx="16" fill="#162236"/>
+<text x="1112" y="200" fill="#94a8c6" font-family="Arial,sans-serif" font-size="12" font-weight="700">ESTIMATED ENERGY</text>
+<text x="1112" y="246" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="31" font-weight="700">2,070.1 kWh</text>
+<text x="1112" y="279" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="12" font-weight="400">Rated watts x modeled runtime</text>
+<rect x="48" y="331" width="844" height="337" rx="16" fill="#111e30"/>
+<text x="72" y="368" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="21" font-weight="700">Daily command success</text>
+<text x="72" y="393" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="13" font-weight="400">Pooled daily successes / commands; target 98%</text>
+<line x1="100" y1="608.0" x2="846" y2="608.0" stroke="#2b3b51" stroke-dasharray="3 5"/>
+<text x="62" y="612.0" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">90%</text>
+<line x1="100" y1="534.0000000000001" x2="846" y2="534.0000000000001" stroke="#2b3b51" stroke-dasharray="3 5"/>
+<text x="62" y="538.0000000000001" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">94%</text>
+<line x1="100" y1="497.0000000000001" x2="846" y2="497.0000000000001" stroke="#2b3b51" stroke-dasharray="3 5"/>
+<text x="62" y="501.0000000000001" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">96%</text>
+<line x1="100" y1="460.00000000000006" x2="846" y2="460.00000000000006" stroke="#2b3b51" stroke-dasharray="3 5"/>
+<text x="62" y="464.00000000000006" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">98%</text>
+<line x1="100" y1="423.0" x2="846" y2="423.0" stroke="#2b3b51" stroke-dasharray="3 5"/>
+<text x="62" y="427.0" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">100%</text>
+<polyline points="100.0,442.9 108.4,463.8 116.8,446.7 125.1,454.3 133.5,460.6 141.9,447.9 150.3,449.5 158.7,451.8 167.1,451.1 175.4,466.4 183.8,470.2 192.2,442.8 200.6,456.0 209.0,459.0 217.3,453.4 225.7,444.9 234.1,440.0 242.5,450.1 250.9,448.4 259.3,447.9 267.6,445.9 276.0,461.5 284.4,446.1 292.8,446.3 301.2,449.9 309.6,451.4 317.9,455.7 326.3,449.7 334.7,446.8 343.1,452.7 351.5,448.1 359.8,484.3 368.2,444.3 376.6,449.5 385.0,448.7 393.4,441.5 401.8,456.2 410.1,493.3 418.5,485.3 426.9,487.4 435.3,490.5 443.7,500.2 452.0,511.2 460.4,486.2 468.8,481.6 477.2,475.8 485.6,487.6 494.0,498.3 502.3,487.0 510.7,517.2 519.1,497.2 527.5,455.9 535.9,455.0 544.2,450.8 552.6,463.3 561.0,460.9 569.4,447.5 577.8,450.4 586.2,442.9 594.5,450.5 602.9,448.7 611.3,445.2 619.7,460.0 628.1,496.3 636.4,447.1 644.8,446.5 653.2,443.7 661.6,464.9 670.0,441.1 678.4,466.4 686.7,457.3 695.1,454.3 703.5,449.9 711.9,453.4 720.3,453.4 728.7,468.3 737.0,458.5 745.4,453.7 753.8,446.3 762.2,464.3 770.6,465.4 778.9,459.8 787.3,447.4 795.7,454.6 804.1,464.6 812.5,443.1 820.9,461.9 829.2,448.2 837.6,457.1 846.0,458.4" fill="none" stroke="#58dfb3" stroke-width="3"/>
+<text x="80.0" y="637" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">07-01</text>
+<text x="331.4606741573034" y="637" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">07-31</text>
+<text x="582.9213483146068" y="637" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">08-30</text>
+<text x="826.0" y="637" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">09-28</text>
+<rect x="916" y="331" width="476" height="337" rx="16" fill="#111e30"/>
+<text x="940" y="368" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="21" font-weight="700">Firmware health</text>
+<text x="940" y="393" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="13" font-weight="400">Descriptive cohorts; rollout periods differ</text>
+<text x="940" y="428" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="16" font-weight="700">1.0.2</text>
+<text x="1280" y="428" fill="#58dfb3" font-family="Arial,sans-serif" font-size="16" font-weight="700">98.44%</text>
+<rect x="940" y="440" width="420" height="12" rx="6" fill="#26364b"/>
+<rect x="940" y="440" width="413.46589829649804" height="12" rx="6" fill="#58dfb3"/>
+<text x="940" y="472" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">47,373 commands</text>
+<text x="940" y="497" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="16" font-weight="700">1.1.0</text>
+<text x="1280" y="497" fill="#f2b969" font-family="Arial,sans-serif" font-size="16" font-weight="700">91.70%</text>
+<rect x="940" y="509" width="420" height="12" rx="6" fill="#26364b"/>
+<rect x="940" y="509" width="385.13240857503155" height="12" rx="6" fill="#f2b969"/>
+<text x="940" y="541" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">4,758 commands</text>
+<text x="940" y="566" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="16" font-weight="700">1.1.1</text>
+<text x="1280" y="566" fill="#58dfb3" font-family="Arial,sans-serif" font-size="16" font-weight="700">98.25%</text>
+<rect x="940" y="578" width="420" height="12" rx="6" fill="#26364b"/>
+<rect x="940" y="578" width="412.6540165089591" height="12" rx="6" fill="#58dfb3"/>
+<text x="940" y="610" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="11" font-weight="400">39,736 commands</text>
+<rect x="48" y="692" width="650" height="270" rx="16" fill="#111e30"/>
+<text x="72" y="731" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="21" font-weight="700">What drives failures?</text>
+<text x="72" y="774" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="14" font-weight="400">Relay Error</text>
+<rect x="260" y="759" width="310.0" height="19" rx="4" fill="#f2b969"/>
+<text x="594" y="774" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="14" font-weight="700">849</text>
+<text x="72" y="831" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="14" font-weight="400">Wifi Offline</text>
+<rect x="260" y="816" width="262.5323910482921" height="19" rx="4" fill="#f2b969"/>
+<text x="594" y="831" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="14" font-weight="700">719</text>
+<text x="72" y="888" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="14" font-weight="400">Broker Timeout</text>
+<rect x="260" y="873" width="94.57008244994111" height="19" rx="4" fill="#f2b969"/>
+<text x="594" y="888" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="14" font-weight="700">259</text>
+<rect x="722" y="692" width="670" height="270" rx="16" fill="#111e30"/>
+<text x="746" y="731" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="21" font-weight="700">Energy with an explicit baseline</text>
+<text x="746" y="774" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="16" font-weight="400">Assumed baseline</text>
+<text x="1130" y="774" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="20" font-weight="700">2,281.5 kWh</text>
+<text x="746" y="817" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="16" font-weight="400">Modeled consumption</text>
+<text x="1130" y="817" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="20" font-weight="700">2,070.1 kWh</text>
+<text x="746" y="860" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="16" font-weight="400">Modeled difference</text>
+<text x="1130" y="860" fill="#58dfb3" font-family="Arial,sans-serif" font-size="20" font-weight="700">211.4 kWh</text>
+<text x="746" y="914" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="13" font-weight="400">Estimated from load ratings and runtime. No metered savings claim.</text>
+<text x="48" y="1006" fill="#c6d2e3" font-family="Arial,sans-serif" font-size="14" font-weight="400">DATA QUALITY   500 exact duplicates removed   /   5 invalid rows quarantined   /   full device-hour coverage</text>
+<text x="48" y="1041" fill="#94a8c6" font-family="Arial,sans-serif" font-size="12" font-weight="400">SQL + Python report preview. The repository also includes a native Power BI project and an Excel reporting workbook.</text>
+</svg>

@@ -1,0 +1,506 @@
+{
+  "name": "SmartSwitch",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DataFolder",
+        "kind": "m",
+        "expression": "\"C:/CHANGE_ME/smartswitch-analytics/data/processed\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]"
+      }
+    ],
+    "tables": [
+      {
+        "name": "dim_device",
+        "columns": [
+          {
+            "name": "device_id",
+            "dataType": "string",
+            "sourceColumn": "device_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "home_id",
+            "dataType": "string",
+            "sourceColumn": "home_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "room",
+            "dataType": "string",
+            "sourceColumn": "room",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "load_type",
+            "dataType": "string",
+            "sourceColumn": "load_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "rated_watts",
+            "dataType": "double",
+            "sourceColumn": "rated_watts",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "baseline_daily_hours",
+            "dataType": "double",
+            "sourceColumn": "baseline_daily_hours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "installed_date",
+            "dataType": "dateTime",
+            "sourceColumn": "installed_date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "model",
+            "dataType": "string",
+            "sourceColumn": "model",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_device",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"/dim_device.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    MissingToNull = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(MissingToNull, {{\"device_id\", type text}, {\"home_id\", type text}, {\"room\", type text}, {\"load_type\", type text}, {\"rated_watts\", type number}, {\"baseline_daily_hours\", type number}, {\"installed_date\", type date}, {\"model\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_date",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "month",
+            "dataType": "string",
+            "sourceColumn": "month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "weekday",
+            "dataType": "string",
+            "sourceColumn": "weekday",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_weekend",
+            "dataType": "int64",
+            "sourceColumn": "is_weekend",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_date",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"/dim_date.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    MissingToNull = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(MissingToNull, {{\"date\", type date}, {\"month\", type text}, {\"weekday\", type text}, {\"is_weekend\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_command",
+        "columns": [
+          {
+            "name": "command_id",
+            "dataType": "string",
+            "sourceColumn": "command_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "device_id",
+            "dataType": "string",
+            "sourceColumn": "device_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "event_time",
+            "dataType": "dateTime",
+            "sourceColumn": "event_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "firmware_version",
+            "dataType": "string",
+            "sourceColumn": "firmware_version",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "action",
+            "dataType": "string",
+            "sourceColumn": "action",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "status",
+            "dataType": "string",
+            "sourceColumn": "status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "failure_reason",
+            "dataType": "string",
+            "sourceColumn": "failure_reason",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latency_ms",
+            "dataType": "double",
+            "sourceColumn": "latency_ms",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_command",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"/fact_command.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    MissingToNull = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(MissingToNull, {{\"command_id\", type text}, {\"device_id\", type text}, {\"event_time\", type datetime}, {\"date\", type date}, {\"firmware_version\", type text}, {\"source\", type text}, {\"action\", type text}, {\"status\", type text}, {\"failure_reason\", type text}, {\"latency_ms\", type number}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Commands",
+            "expression": [
+              "COUNTROWS('fact_command')"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Successful Commands",
+            "expression": [
+              "CALCULATE([Commands], KEEPFILTERS('fact_command'[status] = \"SUCCESS\"))"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Failed Commands",
+            "expression": [
+              "CALCULATE([Commands], KEEPFILTERS('fact_command'[status] <> \"SUCCESS\"))"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Command Success %",
+            "expression": [
+              "DIVIDE([Successful Commands], [Commands])"
+            ],
+            "formatString": "0.00%",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Average Ack ms",
+            "expression": [
+              "CALCULATE(AVERAGE('fact_command'[latency_ms]), KEEPFILTERS('fact_command'[status] = \"SUCCESS\"))"
+            ],
+            "formatString": "0.0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "P95 Ack ms",
+            "expression": [
+              "VAR Good = FILTER('fact_command', 'fact_command'[status] = \"SUCCESS\" && NOT ISBLANK('fact_command'[latency_ms]))",
+              "VAR N = COUNTROWS(Good)",
+              "RETURN IF(N = 0, BLANK(), MAXX(TOPN(ROUNDUP(0.95 * N, 0), Good, 'fact_command'[latency_ms], ASC, 'fact_command'[command_id], ASC), 'fact_command'[latency_ms]))"
+            ],
+            "formatString": "0.0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Heartbeat Delivery %",
+            "expression": [
+              "DIVIDE(SUM('fact_device_hour'[received_heartbeats]), SUM('fact_device_hour'[expected_heartbeats]))"
+            ],
+            "formatString": "0.00%",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Estimated kWh",
+            "expression": [
+              "SUM('fact_device_hour'[estimated_kwh])"
+            ],
+            "formatString": "#,0.0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Assumed Baseline kWh",
+            "expression": [
+              "SUMX('fact_device_hour', RELATED('dim_device'[rated_watts]) * RELATED('dim_device'[baseline_daily_hours]) / 24000)"
+            ],
+            "formatString": "#,0.0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Modeled Avoided kWh",
+            "expression": [
+              "[Assumed Baseline kWh] - [Estimated kWh]"
+            ],
+            "formatString": "#,0.0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Modeled Cost Difference INR",
+            "expression": [
+              "[Modeled Avoided kWh] * 8.0"
+            ],
+            "formatString": "#,0.00",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Reporting Devices",
+            "expression": [
+              "DISTINCTCOUNT('fact_device_hour'[device_id])"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Success 7D %",
+            "expression": [
+              "CALCULATE([Command Success %], DATESINPERIOD('dim_date'[date], MAX('dim_date'[date]), -7, DAY))"
+            ],
+            "formatString": "0.00%",
+            "displayFolder": "SmartSwitch KPIs"
+          },
+          {
+            "name": "Slow Successful Commands",
+            "expression": [
+              "CALCULATE([Successful Commands], KEEPFILTERS('fact_command'[latency_ms] > 800))"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "SmartSwitch KPIs"
+          }
+        ]
+      },
+      {
+        "name": "fact_device_hour",
+        "columns": [
+          {
+            "name": "device_id",
+            "dataType": "string",
+            "sourceColumn": "device_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hour_start",
+            "dataType": "dateTime",
+            "sourceColumn": "hour_start",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          },
+          {
+            "name": "firmware_version",
+            "dataType": "string",
+            "sourceColumn": "firmware_version",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_heartbeats",
+            "dataType": "int64",
+            "sourceColumn": "expected_heartbeats",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "received_heartbeats",
+            "dataType": "int64",
+            "sourceColumn": "received_heartbeats",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "wifi_rssi_dbm",
+            "dataType": "double",
+            "sourceColumn": "wifi_rssi_dbm",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "on_hours",
+            "dataType": "double",
+            "sourceColumn": "on_hours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "estimated_kwh",
+            "dataType": "double",
+            "sourceColumn": "estimated_kwh",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_device_hour",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"/fact_device_hour.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    MissingToNull = Table.ReplaceValue(Headers,\"\",null,Replacer.ReplaceValue,Table.ColumnNames(Headers)),",
+                "    Typed = Table.TransformColumnTypes(MissingToNull, {{\"device_id\", type text}, {\"hour_start\", type datetime}, {\"date\", type date}, {\"firmware_version\", type text}, {\"expected_heartbeats\", Int64.Type}, {\"received_heartbeats\", Int64.Type}, {\"wifi_rssi_dbm\", type number}, {\"on_hours\", type number}, {\"estimated_kwh\", type number}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_firmware",
+        "columns": [
+          {
+            "name": "firmware_version",
+            "dataType": "string",
+            "sourceColumn": "firmware_version",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_firmware",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "#table(type table [firmware_version = text], {{\"1.0.2\"}, {\"1.1.0\"}, {\"1.1.1\"}})"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "fact_command_dim_device",
+        "fromTable": "fact_command",
+        "fromColumn": "device_id",
+        "toTable": "dim_device",
+        "toColumn": "device_id",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      },
+      {
+        "name": "fact_command_dim_date",
+        "fromTable": "fact_command",
+        "fromColumn": "date",
+        "toTable": "dim_date",
+        "toColumn": "date",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      },
+      {
+        "name": "fact_command_dim_firmware",
+        "fromTable": "fact_command",
+        "fromColumn": "firmware_version",
+        "toTable": "dim_firmware",
+        "toColumn": "firmware_version",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      },
+      {
+        "name": "fact_device_hour_dim_device",
+        "fromTable": "fact_device_hour",
+        "fromColumn": "device_id",
+        "toTable": "dim_device",
+        "toColumn": "device_id",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      },
+      {
+        "name": "fact_device_hour_dim_date",
+        "fromTable": "fact_device_hour",
+        "fromColumn": "date",
+        "toTable": "dim_date",
+        "toColumn": "date",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      },
+      {
+        "name": "fact_device_hour_dim_firmware",
+        "fromTable": "fact_device_hour",
+        "fromColumn": "firmware_version",
+        "toTable": "dim_firmware",
+        "toColumn": "firmware_version",
+        "fromCardinality": "many",
+        "toCardinality": "one",
+        "crossFilteringBehavior": "oneDirection"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      }
+    ]
+  }
+}

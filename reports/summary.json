@@ -1,0 +1,60 @@
+{
+  "synthetic": true,
+  "period_start": "2026-07-01",
+  "period_end": "2026-09-28",
+  "days": 90,
+  "homes": 10,
+  "devices": 60,
+  "device_hour_rows": 129600,
+  "commands": 91867,
+  "successes": 90040,
+  "failures": 1827,
+  "command_success_rate": 0.9801125540183091,
+  "avg_latency_ms": 328.0404187027988,
+  "p95_latency_ms": 614.4,
+  "expected_heartbeats": 1555200,
+  "received_heartbeats": 1542970,
+  "heartbeat_delivery_rate": 0.9921360596707819,
+  "estimated_kwh": 2070.082883,
+  "assumed_baseline_kwh": 2281.5,
+  "modeled_avoided_kwh": 211.41711699999996,
+  "modeled_cost_difference_inr": 1691.3369359999997,
+  "alert_device_days": 935,
+  "firmware": [
+    {
+      "firmware_version": "1.0.2",
+      "commands": 47373,
+      "successes": 46636,
+      "success_rate": 0.984442614991662,
+      "avg_latency_ms": 315.6748391800326
+    },
+    {
+      "firmware_version": "1.1.0",
+      "commands": 4758,
+      "successes": 4363,
+      "success_rate": 0.9169819251786465,
+      "avg_latency_ms": 569.4273664909466
+    },
+    {
+      "firmware_version": "1.1.1",
+      "commands": 39736,
+      "successes": 39041,
+      "success_rate": 0.9825095631165693,
+      "avg_latency_ms": 315.83555492943316
+    }
+  ],
+  "failure_reasons": [
+    {
+      "failure_reason": "RELAY_ERROR",
+      "failures": 849
+    },
+    {
+      "failure_reason": "WIFI_OFFLINE",
+      "failures": 719
+    },
+    {
+      "failure_reason": "BROKER_TIMEOUT",
+      "failures": 259
+    }
+  ]
+}

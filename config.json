@@ -1,0 +1,14 @@
+{
+  "seed": 20260701,
+  "start_date": "2026-07-01",
+  "days": 90,
+  "homes": 10,
+  "switches_per_home": 6,
+  "heartbeat_interval_minutes": 5,
+  "tariff_inr_per_kwh": 8.0,
+  "command_success_target": 0.98,
+  "heartbeat_delivery_target": 0.99,
+  "daily_min_commands_for_alert": 25,
+  "weak_wifi_threshold_dbm": -70,
+  "slow_ack_threshold_ms": 800
+}

@@ -1,0 +1,4 @@
+failure_reason,failures
+RELAY_ERROR,849
+WIFI_OFFLINE,719
+BROKER_TIMEOUT,259
