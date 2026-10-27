@@ -199,6 +199,8 @@ def run_pipeline(root=ROOT):
         (reports / "rejected_rows.json").write_text(json.dumps(bad_c+bad_h, indent=2) + "\n")
         from .report import write_report
         write_report(root, summary, daily, fw, failures, cfg, quality)
+        from .web_report import write_web_data
+        write_web_data(conn, root, cfg, quality)
     finally:
         conn.close()
     os.replace(tmp_db, db_dir / "smartswitch.sqlite")

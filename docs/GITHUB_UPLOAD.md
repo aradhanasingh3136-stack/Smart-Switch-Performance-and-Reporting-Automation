@@ -4,6 +4,8 @@ Published repository: [Smart Switch Performance and Reporting Automation](https:
 
 The repository is public. Project commits are attributed to **Aradhana Singh** (`aradhanasingh3136-stack`).
 
+Interview dashboard: [Open the interactive GitHub Pages demo](https://aradhanasingh3136-stack.github.io/Smart-Switch-Performance-and-Reporting-Automation/). This link opens the running browser dashboard; the repository PNG is a static preview. See [the demo guide](DEMO.md).
+
 Owner: **aradhanasingh3136-stack**<br>
 Repository name: **Smart-Switch-Performance-and-Reporting-Automation**<br>
 Suggested description: **Smart home switch performance analytics and reporting automation with SQL, Python, Power BI and Excel VBA. Includes reproducible synthetic IoT data and validation checks.**

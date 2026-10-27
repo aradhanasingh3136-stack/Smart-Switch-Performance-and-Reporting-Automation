@@ -11,6 +11,7 @@ Personal portfolio project using synthetic IoT data
 - Built a reproducible SQL and Python analytics pipeline for **91,867 simulated commands and 129,600 device-hour records** across 60 smart switches and 10 homes.
 - Designed reporting for command reliability, P95 acknowledgement latency, heartbeat delivery, firmware performance and estimated energy usage using shared dimensions and correctly weighted KPIs.
 - Implemented duplicate handling, invalid-record quarantine and reconciliation checks, with **12 automated tests** covering key data quality and metric behaviors.
+- Built an interactive browser dashboard with Home, Date and Firmware filters, exact filtered P95 latency, device exploration and CSV exports, deployed through GitHub Pages with SQL reconciliation checks.
 
 After you verify the native Power BI report and VBA workflow yourself, a suitable additional bullet is:
 
@@ -30,6 +31,8 @@ Published repository URL:
 `https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation`
 
 The repository is public. Use this direct project link on your resume and portfolio.
+
+Interactive demo: `https://aradhanasingh3136-stack.github.io/Smart-Switch-Performance-and-Reporting-Automation/`
 
 Display text in the resume can be **GitHub: SmartSwitch Analytics**, linked to the verified repository URL. Avoid the profile's `?tab=projects` URL; a direct repository link takes a recruiter to the code and documentation.
 

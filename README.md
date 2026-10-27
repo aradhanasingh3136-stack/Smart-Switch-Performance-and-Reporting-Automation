@@ -4,6 +4,10 @@
 
 **SQL · Python · Power BI · Excel VBA**
 
+**[Open the interactive dashboard →](https://aradhanasingh3136-stack.github.io/Smart-Switch-Performance-and-Reporting-Automation/)**
+
+Filter by home, date and firmware, investigate failures, explore devices and export your selection. The browser dashboard uses validated synthetic data from this pipeline. See the [interview demo guide](docs/DEMO.md) for a short walkthrough.
+
 How reliably do smart switches respond? Which homes need connectivity fixes? What does scheduled runtime mean for estimated energy use?
 
 This portfolio project turns synthetic smart home telemetry into a validated SQL warehouse, operational reports, a Power BI project, and an Excel reporting workflow.
@@ -49,6 +53,14 @@ Open [the findings](reports/findings.md), [the dashboard](reports/dashboard.svg)
 
 The first command generates raw data, validates it, rebuilds the SQLite warehouse and exports reporting files. Run `python3 run.py` to refresh from the existing raw CSVs. A normal refresh replaces the derived outputs and warehouse.
 
+To run the interactive browser dashboard locally after the pipeline finishes:
+
+```bash
+python3 scripts/serve_dashboard.py
+```
+
+Open `http://127.0.0.1:8765/` in your browser. Keep the terminal running while using the local dashboard. Press Ctrl+C to stop it. The hosted demo link above works without running anything locally.
+
 ## What each tool does
 
 | Tool | Responsibility | Main files |
@@ -59,6 +71,7 @@ The first command generates raw data, validates it, rebuilds the SQLite warehous
 | Excel | Formula-driven daily operations report and native chart | `excel/SmartSwitch_Reporting.xlsx` |
 | VBA | Validate CSV imports, refresh report, optionally launch Python on Windows, export a PDF | `excel/SmartSwitchAutomation.bas` |
 | GitHub Actions | Rebuild, run tests and check reproducibility on pushes | `.github/workflows/validate.yml` |
+| Browser / GitHub Pages | Filter the validated dataset, calculate exact selected P95, chart metrics and export CSVs | `web/`, `.github/workflows/dashboard.yml` |
 
 ## Data flow and model
 
@@ -83,6 +96,7 @@ There are two fact grains: **one command** and **one device-hour**. Both connect
 | Start here | What you will learn |
 |---|---|
 | [Project walkthrough](docs/PROJECT_WALKTHROUGH.md) | Problem, architecture, findings and a five-minute demo |
+| [Interactive interview demo](docs/DEMO.md) | Live dashboard link, demo scenarios, deployment and local preview |
 | [Setup and automation](docs/SETUP.md) | Run locally, schedule Python, refresh Excel |
 | [Power BI guide](powerbi/README.md) | Open PBIP, set the source folder, refresh, verify and export |
 | [Data dictionary](docs/DATA_DICTIONARY.md) | Tables, grains, units and KPI definitions |
@@ -106,6 +120,7 @@ smartswitch-analytics/
 ├── excel/                      # Reporting workbook and VBA source
 ├── reports/                    # Dashboard, findings and quality reports
 ├── scripts/                    # Scheduling and reproducibility tools
+├── web/                        # Interactive browser dashboard and compact data export
 └── docs/                       # Explanation, setup, resume and interview guides
 ```
 
@@ -125,6 +140,8 @@ Large generated fact CSVs and the SQLite database are excluded from Git. They ar
 Heartbeat delivery is a connectivity proxy, not exact uptime. Acknowledgement is not physical actuation confirmation. Energy uses assumed load ratings and runtime rather than a calibrated meter. Firmware comparisons are observational.
 
 The Python pipeline and workbook formulas have been checked. Power BI Desktop refresh/rendering and VBA execution require verification in their native applications. See the [validation record](docs/VALIDATION.md). The delivered workbook is `.xlsx`; import the supplied module and save as `.xlsm` to use macros.
+
+The interactive web dashboard is written in JavaScript and is separate from the native Power BI project. GitHub Actions runs Python and SQL during the build; the browser recalculates filters from a published data snapshot. It does not read live hardware or run a Python backend on each click.
 
 Possible extensions are an MQTT ingestion adapter, actual metered readings, incident grouping, versioned data retention, and device-level access controls. These extensions are not represented as completed work.
 

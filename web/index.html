@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#112235">
+  <meta name="description" content="Explore smart switch reliability, firmware and estimated energy in Aradhana Singh's interactive SQL and Python analytics portfolio.">
+  <title>SmartSwitch Analytics · Aradhana Singh</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b8b79'/%3E%3Cpath d='M36 9 18 35h14l-4 20 20-29H34z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to dashboard</a>
+<aside class="sidebar">
+  <a class="brand" href="#overview"><span class="brand-mark">ϟ</span><span>SmartSwitch<small>ANALYTICS WORKSPACE</small></span></a>
+  <p class="nav-label">REPORT</p>
+  <nav aria-label="Report sections"><a href="#overview" class="active"><span>◫</span> Overview</a><a href="#reliability"><span>⌁</span> Reliability</a><a href="#energy"><span>ϟ</span> Estimated energy</a></nav>
+  <div class="sidebar-note"><span class="live-dot"></span> Interactive demo<p>Explore the data.<br>Follow the evidence.</p><small>Synthetic home automation data<br>July – September 2026</small></div>
+  <a class="author" href="https://github.com/aradhanasingh3136-stack" target="_blank" rel="noopener"><span class="avatar">AS</span><span>Aradhana Singh<small>PORTFOLIO PROJECT ↗</small></span></a>
+</aside>
+<main id="main">
+  <header id="overview"><div><p class="eyebrow">HOME AUTOMATION / PERFORMANCE REPORT</p><h1>Small switches.<br class="mobile-break"> Clearer decisions.</h1><p class="subtitle">An interactive view of reliability, connectivity and modeled energy.</p></div><div class="header-actions"><span class="demo-tag"><span></span> Synthetic demo</span><a class="button secondary" href="https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation" target="_blank" rel="noopener">View source ↗</a></div></header>
+  <section class="filters" aria-label="Dashboard filters">
+    <label>Home<select id="home" disabled><option value="">All homes</option></select></label>
+    <label>Firmware<select id="firmware" disabled><option value="">All versions</option></select></label>
+    <label>From<input id="start" type="date" disabled></label>
+    <label>To<input id="end" type="date" disabled></label>
+    <button id="reset" class="reset" disabled>↺ Reset</button>
+  </section>
+  <div class="demo-shortcuts"><span>EXPLORE A SCENARIO</span><button data-preset="all">Full demo</button><button data-preset="firmware">Firmware regression ↗</button><button data-preset="connectivity">Home connectivity incident ↗</button></div>
+  <p id="filter-error" class="error" role="alert" hidden></p>
+  <div class="selection-line"><p id="selection" role="status" aria-live="polite">Loading validated reporting data…</p><button id="export" class="export" disabled>↓ Export selection</button></div>
+  <div id="load-error" class="error" role="alert" hidden>Reporting data could not be loaded. Please reload the page. For a local preview, run <code>python3 scripts/serve_dashboard.py</code> from the project folder.</div>
+  <section class="kpis" aria-label="Selected performance metrics">
+    <article class="kpi"><div class="kpi-label">Command success <span>↗</span></div><strong id="success">—</strong><p id="command-count">Loading commands</p><span id="success-status" class="status">Target: 98%</span><div class="mini-track"><i id="success-track"></i></div></article>
+    <article class="kpi"><div class="kpi-label">P95 response latency <span>◷</span></div><strong id="latency">—</strong><p>95% of successful commands at or below this</p><span class="metric-note">Exact nearest-rank percentile</span></article>
+    <article class="kpi"><div class="kpi-label">Heartbeat delivery <span>⌁</span></div><strong id="heartbeat">—</strong><p id="heartbeat-count">Received / expected heartbeats</p><span class="metric-note">Connectivity proxy · target 99%</span></article>
+    <article class="kpi"><div class="kpi-label">Estimated energy <span>ϟ</span></div><strong id="energy-value">—</strong><p>Rated load × modeled switch runtime</p><span class="metric-note">Estimated, not metered</span></article>
+  </section>
+  <section class="chart-grid" id="reliability">
+    <article class="panel trend-panel"><div class="panel-head"><div><p class="eyebrow">RELIABILITY OVER TIME</p><h2>Daily command success</h2></div><span class="legend"><i></i> Success <i class="target"></i> 98% target</span></div><div class="chart-wrap"><div id="trend" class="chart" aria-label="Daily command success chart"></div><div id="chart-tooltip" class="tooltip" hidden></div></div><p class="chart-note">Hover over the chart to inspect a day. Rates use pooled command counts.</p></article>
+    <article class="panel firmware-panel"><div class="panel-head"><div><p class="eyebrow">FIRMWARE COMPARISON</p><h2>Spot the regression</h2></div></div><div id="firmware-bars" class="firmware-bars"></div><p class="chart-note">Select a version to filter the report. Cohorts and rollout periods differ; this comparison is descriptive.</p></article>
+  </section>
+  <section class="detail-grid">
+    <article class="panel"><div class="panel-head"><div><p class="eyebrow">FAILURE BREAKDOWN</p><h2>What needs attention?</h2></div><span id="failure-total" class="muted"></span></div><div id="failure-bars" class="failure-bars"></div><p id="insight" class="insight">Insights follow your selected filters.</p></article>
+    <article class="panel"><div class="panel-head"><div><p class="eyebrow">DATA YOU CAN ACCOUNT FOR</p><h2>From raw events to decisions</h2></div><span class="quality-icon">✓</span></div><div class="quality-grid"><div><strong id="duplicates">—</strong><span>exact duplicates removed</span></div><div><strong id="rejected">—</strong><span>invalid rows quarantined</span></div></div><p class="chart-note">Quality checks refer to the full source dataset.</p><div class="flow"><span>CSV events</span><b>→</b><span>Python + SQL</span><b>→</b><span>This report</span></div><details id="method"><summary>How this interactive demo runs</summary><p>Python validates synthetic events, removes exact duplicates and builds a SQLite warehouse. This page loads its exported data and recalculates each selection in your browser. GitHub Actions rebuilds, tests and publishes the report.</p><p>P95 is calculated from successful command values. Heartbeat rates use expected counts. Energy is modeled from load ratings and runtime, not measured electricity savings. This is a JavaScript web dashboard; the repository also contains a separate native Power BI project.</p></details></article>
+  </section>
+  <section class="panel energy-panel" id="energy"><div class="panel-head"><div><p class="eyebrow">USAGE & ESTIMATED ENERGY</p><h2>Make the baseline explicit</h2><p class="muted">Selected devices and dates, with the same firmware filters.</p></div><span class="energy-badge">MODELED ESTIMATES</span></div><div class="energy-body"><div class="energy-summary"><div><span>Assumed baseline</span><strong id="baseline">—</strong></div><div><span>Estimated consumption</span><strong id="consumption">—</strong></div><div class="energy-difference"><span>Modeled difference</span><strong id="difference">—</strong><small id="cost"></small></div></div><div><div class="energy-legend"><span><i></i> Estimated consumption</span><span><i class="baseline-dot"></i> Assumed baseline</span></div><div id="energy-chart" class="chart"></div></div></div><p class="chart-note">A modeled difference is a comparison with an assumed baseline, not a claim of realized bill savings.</p></section>
+  <section class="panel devices-panel"><div class="panel-head"><div><p class="eyebrow">DEVICE EXPLORER</p><h2>Find the switches behind the numbers</h2></div><label class="search-label"><span class="sr-only">Search devices, rooms or homes</span><input id="search" type="search" placeholder="Search device, home or room…"></label></div><div class="table-scroll"><table><thead><tr><th><button data-sort="device_id">Device ↕</button></th><th>Home / room</th><th><button data-sort="commands">Commands ↕</button></th><th><button data-sort="successRate">Success ↕</button></th><th><button data-sort="heartbeatRate">Heartbeat ↕</button></th><th><button data-sort="energy">Energy ↕</button></th></tr></thead><tbody id="device-rows"></tbody></table></div><div class="table-footer"><span id="table-count">Loading devices…</span><div><button id="previous" aria-label="Previous device page" disabled>← Previous</button><span id="page-number"></span><button id="next" aria-label="Next device page" disabled>Next →</button></div></div></section>
+  <footer><p>Built by <a href="https://github.com/aradhanasingh3136-stack" target="_blank" rel="noopener">Aradhana Singh ↗</a> <span>·</span> SQL · Python · JavaScript · Power BI · Excel VBA</p><a href="https://github.com/aradhanasingh3136-stack/Smart-Switch-Performance-and-Reporting-Automation/actions" target="_blank" rel="noopener">View pipeline validation ↗</a></footer>
+</main>
+</body></html>

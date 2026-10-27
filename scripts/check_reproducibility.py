@@ -6,6 +6,7 @@ from pathlib import Path
 
 root=Path(__file__).resolve().parents[1]
 paths=[root/"reports/summary.json",root/"reports/data_quality.json"]
+paths += [root/"web/data.json"]
 paths+=sorted((root/"data/processed").glob("*.csv"))
 before={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
 subprocess.run([sys.executable,"run.py"],cwd=root,check=True)

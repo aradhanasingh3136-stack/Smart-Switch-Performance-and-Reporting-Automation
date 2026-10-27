@@ -34,6 +34,9 @@ The generator uses the fixed seed in `config.json`. The supplied period is 1 Jul
 - `reports/data_quality.json`: source reconciliation and input hashes.
 - `reports/rejected_rows.json`: invalid records and reasons.
 - `reports/run_log.json`: local runtime and completion timestamp.
+- `web/data.json`: compact validated data for the interactive browser dashboard, regenerated with the pipeline.
+
+For the interactive report, run `python3 scripts/serve_dashboard.py` from the project root and open `http://127.0.0.1:8765/`. Keep that terminal open. Press Ctrl+C to stop. For a hosted interview demo and deployment instructions, see [the demo guide](DEMO.md).
 
 `python3 run.py --queries` prints the first eight rows of each analysis. Full queries are in `sql/03_analysis.sql`. The SQL dialect is SQLite. MySQL Workbench needs a MySQL server and cannot directly open this database. A future MySQL port would need dialect and loading changes.
 
